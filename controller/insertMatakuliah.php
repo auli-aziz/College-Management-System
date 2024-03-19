@@ -6,14 +6,14 @@ $data = json_decode($json);
 
 $dbconn = pg_connect($connection_string);
 
-$sqlstring = "INSERT INTO Mahasiswa (NIM, Nama, Semester) VALUES ({$data->NIM}, '{$data->Nama}', {$data->Semester})";
+$sqlstring = "INSERT INTO MataKuliah (NIM, NIDN, Nama) VALUES ({$data->NIM}, {$data->NIDN}, '{$data->Nama}')";
 
 $query = pg_query($dbconn, $sqlstring);
 
 if ($query) {
-  echo "insert data mahasiswa berhasil";
+  echo "insert data matakuliah berhasil";
 } else {
-  echo "insert data mahasiswa gagal";
+  echo "insert data matakuliah gagal";
 }
 
 ?>
